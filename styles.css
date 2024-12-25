@@ -1,0 +1,231 @@
+/* General Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom, #1e3c72, #2a5298);
+    overflow: hidden;
+    color: white;
+}
+
+/* Main Background */
+.background {
+    background-image: url('1.jpg'); /* Christmas Snowy Background */
+    background-size: cover;
+    height: 100%;
+    position: relative;
+    text-align: center;
+    padding-top: 50px;
+    border: 10px solid #ffffff; /* Adding a border around the content */
+    border-radius: 20px;
+    box-shadow: 0 4px 50px rgba(0, 0, 0, 0.5); /* Subtle shadow around the background */
+}
+
+/* Snowflakes */
+.snowflakes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.snowflake {
+    position: absolute;
+    top: -10px;
+    color: #ffffff;
+    font-size: 2em;
+    animation: snow 10s linear infinite, float 2s ease-in-out infinite;
+    opacity: 0.8;
+}
+
+@keyframes snow {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(10px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Content Styles */
+.content {
+    position: relative;
+    z-index: 2;
+    color: white;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Added text shadow for better visibility */
+    margin-top: 100px;
+    text-align: center;
+}
+
+.content h1 {
+    font-size: 3.5em;
+    font-weight: bold;
+    animation: bounceIn 1s ease;
+}
+
+.content p {
+    font-size: 1.5em;
+    margin-top: 20px;
+    opacity: 0;
+    animation: fadeIn 2s ease 1s forwards;
+}
+
+/* Bounce and Fade-in Animation */
+@keyframes bounceIn {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Popup Style */
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 40px;
+    border-radius: 20px; /* Rounded corners for a modern look */
+    text-align: center;
+    z-index: 10;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    width: 80%;
+    max-width: 600px;
+    animation: popupIn 0.5s ease-in-out;
+    border: 3px solid #ff6f61; /* Border around the popup */
+}
+
+.popup-content h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #ff6f61; /* Making the heading more festive */
+}
+
+.popup p {
+    font-size: 1.2em;
+    margin: 20px 0;
+}
+
+button {
+    padding: 15px 30px;
+    background-color: #ff6f61;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Button shadow for a 3D effect */
+}
+
+button:hover {
+    background-color: #ff4d3d;
+}
+
+/* Popup Animation */
+@keyframes popupIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Media Queries for Responsiveness */
+
+/* For Devices with width <= 600px (e.g., iPhone and Android phones) */
+@media (max-width: 600px) {
+    .background {
+        padding-top: 30px; /* Adjust padding for small screens */
+    }
+
+    .content h1 {
+        font-size: 2.5em; /* Smaller text size for smaller screens */
+    }
+
+    .content p {
+        font-size: 1.2em; /* Smaller text size */
+        margin-top: 15px;
+    }
+
+    .popup {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .popup-content h2 {
+        font-size: 2em; /* Smaller heading size */
+    }
+
+    button {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+
+    .snowflake {
+        font-size: 1.5em; /* Smaller snowflakes */
+    }
+}
+
+/* For Devices with width <= 768px (e.g., iPads and larger smartphones) */
+@media (max-width: 768px) {
+    .background {
+        padding-top: 40px; /* Slightly reduced padding */
+    }
+
+    .content h1 {
+        font-size: 3em;
+    }
+
+    .popup {
+        width: 85%;
+        padding: 30px;
+    }
+
+    .popup-content h2 {
+        font-size: 2.2em;
+    }
+
+    button {
+        padding: 13px 28px;
+        font-size: 1.1em;
+    }
+
+    .snowflake {
+        font-size: 1.8em; /* Slightly smaller snowflakes */
+    }
+}
